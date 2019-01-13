@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class EditaPesquisa extends Component {
 	render() {
-		return (null);
+		return (<div>Pesquisa</div>);
 	}
 }
 

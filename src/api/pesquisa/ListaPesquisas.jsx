@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
+import MainButton from "../utils/MainButton";
 
 class ListaPesquisas extends Component {
 	render() {
-		return (null);
+		return (<div>
+			<MainButton/>
+			Lista de pesquisas
+		</div>);
 	}
 }
 
