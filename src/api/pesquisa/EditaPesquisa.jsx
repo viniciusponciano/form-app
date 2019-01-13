@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-class ListaPesquisas extends Component {
+class EditaPesquisa extends Component {
 	render() {
 		return (null);
 	}
 }
 
-export default ListaPesquisas;
+export default EditaPesquisa;
