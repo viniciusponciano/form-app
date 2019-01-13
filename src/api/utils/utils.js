@@ -9,6 +9,5 @@ export function flattenMessages(nestedMessages, prefix = '') {
 		}
 		return messages
 	}, {});
-	console.log(flattened);
 	return flattened;
 }

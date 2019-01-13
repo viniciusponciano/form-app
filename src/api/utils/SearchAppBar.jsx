@@ -72,7 +72,6 @@ const styles = theme => ({
 
 function SearchAppBar(props) {
 	const { classes, location: { pathname }, intl } = props;
-	console.log(props);
 	return (
 		<div className={classes.root}>
 			<AppBar position="static">
