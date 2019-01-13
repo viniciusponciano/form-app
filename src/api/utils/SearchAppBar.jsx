@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import { FormattedMessage, intlShape, injectIntl } from 'react-intl'
+import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
 	root: {
@@ -71,30 +71,29 @@ const styles = theme => ({
 });
 
 function SearchAppBar(props) {
-	const { classes } = props;
+	const { classes, location: { pathname }, intl } = props;
+	console.log(props);
 	return (
 		<div className={classes.root}>
 			<AppBar position="static">
 				<Toolbar>
-					<IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-						<MenuIcon />
-					</IconButton>
 					<Typography className={classes.title} variant="h6" color="inherit" noWrap>
-						Material-UI
+						<FormattedMessage id={pathname === '/' ? 'listaPesquisas.titulo' : 'editaPesquisa.titulo'} />
 					</Typography>
 					<div className={classes.grow} />
-					<div className={classes.search}>
+					{pathname === '/' &&
+						<div className={classes.search}>
 						<div className={classes.searchIcon}>
 							<SearchIcon />
 						</div>
 						<InputBase
-							placeholder="Search…"
+							placeholder={intl.formatMessage({ id: 'listaPesquisas.campoPesquisaPlaceholder' })}
 							classes={{
 								root: classes.inputRoot,
 								input: classes.inputInput,
 							}}
 						/>
-					</div>
+					</div>}
 				</Toolbar>
 			</AppBar>
 		</div>
@@ -103,6 +102,7 @@ function SearchAppBar(props) {
 
 SearchAppBar.propTypes = {
 	classes: PropTypes.object.isRequired,
+	intl: intlShape.isRequired,
 };
 
-export default withStyles(styles)(SearchAppBar);
+export default withRouter(injectIntl(withStyles(styles)(SearchAppBar)));

@@ -12,6 +12,7 @@ class App extends Component {
 				<div className="App">
 					<SearchAppBar/>
 					<Route exact path="/" component={ListaPesquisas}/>
+					<Route exact path="/pesquisa" component={EditaPesquisa}/>
 					<Route path="/pesquisa/:id" component={EditaPesquisa}/>
 				</div>
 			</Router>

@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
+import { FormattedMessage } from 'react-intl';
 
 class EditaPesquisa extends Component {
 	render() {
-		return (<div>Pesquisa</div>);
+		return (<div>
+			<FormattedMessage id="editaPesquisa.titulo" />
+		</div>);
 	}
 }
 

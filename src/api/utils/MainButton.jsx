@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import NavigationIcon from '@material-ui/icons/Navigation';
+import { FormattedMessage } from 'react-intl'
 
 const styles = theme => ({
 	fab: {
@@ -38,7 +39,7 @@ function MainButton(props) {
 			</Fab>
 			<Fab variant="extended" color="primary" aria-label="Add" className={classes.fabExtended} onClick={onClick}>
 				<NavigationIcon className={classes.extendedIcon}/>
-				Extended
+				<FormattedMessage id="listaPesquisas.fab" />
 			</Fab>
 		</div>
 	);
